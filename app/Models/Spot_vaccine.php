@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class spot_vaccines extends Model
+class Spot_vaccine extends Model
 {
     protected $table = 'spot_vaccines';
 
@@ -15,6 +15,6 @@ class spot_vaccines extends Model
 
     public function vaccine()
     {
-        return $this->belongsTo(vaccines::class);
+        return $this->belongsTo(Vaccine::class);
     }
 }

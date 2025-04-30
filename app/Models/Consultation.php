@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class consultations extends Model
+class Consultation extends Model
 {
     protected $table = 'consultations';
     protected $fillable = [
@@ -19,6 +19,6 @@ class consultations extends Model
 
     public function societies()
     {
-        return $this->belongsTo(societies::class);
+        return $this->belongsTo(Societie::class);
     }
 }

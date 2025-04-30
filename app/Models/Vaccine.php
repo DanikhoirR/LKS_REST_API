@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class vaccines extends Model
+class Vaccine extends Model
 {
     protected $table = 'vaccines';
     protected $fillable = [

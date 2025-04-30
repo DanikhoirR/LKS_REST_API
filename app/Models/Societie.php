@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class societies extends Model
+class Societie extends Model
 {
     protected $table = 'societies';
     protected $fillable = [
@@ -20,6 +20,6 @@ class societies extends Model
 
     public function regionals()
     {
-        return $this->belongsTo(regionals::class);
+        return $this->belongsTo(Regional::class);
     }
 }

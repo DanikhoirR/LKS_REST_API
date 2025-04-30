@@ -17,9 +17,9 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('society_id')->constrained();
             $table->foreignId('spot_id')->constrained();
-            $table->foreignId('vaccine_id')->constrained()->unsigned();
-            $table->foreignId('doctor_id')->constrained()->unsigned();
-            $table->foreignId('officer_id')->constrained()->unsigned();
+            $table->foreignId('vaccine_id')->unsigned()->constrained();
+            $table->foreignId('doctor_id')->unsigned()->constrained();
+            $table->foreignId('officer_id')->unsigned()->constrained();
             $table->timestamps();
         });
     }
