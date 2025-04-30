@@ -21,4 +21,9 @@ class Consultation extends Model
     {
         return $this->belongsTo(Societie::class);
     }
+
+    public function doctors()
+    {
+        return $this->belongsTo(Medical::class);
+    }
 }

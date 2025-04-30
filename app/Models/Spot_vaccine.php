@@ -13,7 +13,7 @@ class Spot_vaccine extends Model
         'vaccine_id',
     ];
 
-    public function vaccine()
+    public function vaccines()
     {
         return $this->belongsTo(Vaccine::class);
     }
