@@ -11,7 +11,7 @@ class Spot extends Model
     protected $fillable = [
         'regional_id',
         'name',
-        'addreas',
+        'address',
         'serve',
         'capacity',
     ];

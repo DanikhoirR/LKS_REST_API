@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Regional;
+use App\Models\Spot;
 use App\Models\User;
 use App\Models\Vaccine;
 use Attribute;
@@ -51,10 +52,10 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
-        User::create([
-            'username' => 'Dane Khoir',
-            'password' => Hash::make('password'),
-        ]);
+        $regionals = Regional::all();
+
+
+        User::factory(10)->create();
 
         foreach ($listVaccine as $key => $value) {
             Vaccine::create($value);
@@ -62,6 +63,18 @@ class DatabaseSeeder extends Seeder
 
         foreach ($listRegional as $key => $value) {
             Regional::create($value);
+        };
+
+        foreach ($regionals as $regional) {
+            for ($i = 1; $i <= 5; $i++) {
+                Spot::create([
+                    'regional_id' => $regional->id,
+                    'name' => 'spot' . ' ' . $regional->district,
+                    'address' => 'Jl. Raya No. ' . $i,
+                    'serve' => 0,
+                    'capacity' => rand(50, 100),
+                ]);
+            };
         };
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('regional_id')->unsigned()->constrained();
             $table->string('name');
-            $table->text('addreas');
+            $table->text('address');
             $table->tinyInteger('serve');
             $table->integer('capacity');
             $table->timestamps();
