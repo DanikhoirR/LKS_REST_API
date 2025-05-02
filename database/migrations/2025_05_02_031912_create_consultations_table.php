@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('society_id')->constrained();
+            $table->bigInteger('society_id')->unsigned();
             $table->bigInteger('doctor_id')->unsigned();
             $table->enum('status', ['accepted', 'declined', 'pending']);
             $table->text('disease_history');

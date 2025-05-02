@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->tinyInteger('dose');
             $table->date('date');
-            $table->foreignId('society_id')->constrained();
-            $table->foreignId('spot_id')->constrained();
-            $table->foreignId('vaccine_id')->unsigned()->constrained();
-            $table->foreignId('doctor_id')->unsigned()->constrained();
-            $table->foreignId('officer_id')->unsigned()->constrained();
+            $table->bigInteger('society_id')->unsigned();
+            $table->bigInteger('spot_id')->unsigned();
+            $table->bigInteger('vacine_id')->unsigned();
+            $table->bigInteger('doctor_id')->unsigned();
+            $table->bigInteger('office_id')->unsigned();
             $table->timestamps();
         });
     }

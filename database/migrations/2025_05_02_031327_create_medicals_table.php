@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('societies', function (Blueprint $table) {
+        Schema::create('medicals', function (Blueprint $table) {
             $table->id();
-            $table->char('id_card_number, 8');
-            $table->string('password');
+            $table->bigInteger('spot_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->enum('role', ['office', 'doctor']);
             $table->string('name');
-            $table->date('bon_darte');
-            $table->enum('gender', ['male', 'female']);
-            $table->text('addreas');
-            $table->foreignId('regional_id')->constrained();
-            $table->text('login_tokens');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('societies');
+        Schema::dropIfExists('medicals');
     }
 };
