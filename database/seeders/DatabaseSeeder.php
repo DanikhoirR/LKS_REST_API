@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Medical;
 use App\Models\Regional;
 use App\Models\Spot;
 use App\Models\User;
@@ -52,9 +53,6 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
-        $regionals = Regional::all();
-
-
         User::factory(10)->create();
 
         foreach ($listVaccine as $key => $value) {
@@ -65,6 +63,7 @@ class DatabaseSeeder extends Seeder
             Regional::create($value);
         };
 
+        $regionals = Regional::all();
         foreach ($regionals as $regional) {
             for ($i = 1; $i <= 5; $i++) {
                 Spot::create([
@@ -76,5 +75,23 @@ class DatabaseSeeder extends Seeder
                 ]);
             };
         };
+
+        $spots = Spot::all();
+        $users = User::all();
+        for ($i = 1; $i <= count($users); $i++) {
+            foreach ($users as $user) {
+                $user_id = $user->id;
+                for ($i = 1; $i <= count($spots); $i++) {
+                    foreach ($spots as $spot) {
+                        $spot_id = $spot->id;
+                        Medical::create([
+                            'spot_id' => $spot_id,
+                            'user_id' => $user_id,
+                            'name' => $user->username,
+                        ]);
+                    }
+                }
+            }
+        }
     }
 }

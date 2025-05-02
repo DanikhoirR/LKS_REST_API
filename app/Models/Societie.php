@@ -11,11 +11,15 @@ class Societie extends Model
         'id_card_number',
         'password',
         'name',
-        'bon_darte',
+        'born',
         'gender',
-        'addreas',
+        'address',
         'regional_id',
         'login_tokens',
+    ];
+
+    protected $hidden = [
+        'password',
     ];
 
     public function regionals()
